@@ -17,11 +17,11 @@ const EditProfile = ({ getMyProfile, profile: { profile, loading } }) => {
   if (profile === null) return <Spinner />;
 
   return (
-    <div className="">
+    <div className="full-height">
       <AdminHeader profile={profile} />
       <div className="row">
         <div className="col-lg-4 col-md-6 "></div>
-        <div className="col-lg-8 col-md-6 p-2 ">
+        <div className="col-lg-8 col-md-6 p-2 border-left ">
           <form className="p-4 mx-auto">
             <div className="form-row">
               <div className="form-group col-md-6">

@@ -34,7 +34,7 @@ const Header = ({ auth, logout }) => {
     </ul>
   );
   return (
-    <nav className="navbar navbar-expand-sm sticky-top navbar-dark red darken-3">
+    <nav className="navbar navbar-expand-md sticky-top navbar-dark red darken-3">
       <div className="container-lg">
         <a
           className="navbar-brand mr-5 "

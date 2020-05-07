@@ -34,11 +34,10 @@ const Signup = ({ signup, auth }) => {
   };
 
   return (
-    <div className="container-fluid h-100">
-      <div className="row justify-content-center h-100">
+    <div className="container-fluid young-passion-gradient">
+      <div className="row justify-content-center ">
         <div
-          className="col-12 col-md-7 d-sm-none d-md-block d-none d-sm-block"
-          id="yellow"
+          className="col-12 col-md-7 d-sm-none d-md-block full-height shadow"
           style={{
             backgroundImage:
               "url(https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)",
@@ -49,8 +48,8 @@ const Signup = ({ signup, auth }) => {
             backgroundRepeat: "no-repeat",
           }}
         />
-        <div className="col-12 col-md-5 align-self-center">
-          <form className="shadow py-4 px-4" onSubmit={(e) => onSubmit(e)}>
+        <div className="col-12 col-md-5 full-height ">
+          <form className="shadow py-5 px-2 " onSubmit={(e) => onSubmit(e)}>
             <h5 className="lead heading font-weight-bold">Register now!</h5>
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Full Name</label>

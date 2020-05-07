@@ -28,11 +28,10 @@ const Login = ({ setAlert, login, auth }) => {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <div className="container-fluid h-100">
-      <div className="row justify-content-center h-100">
+    <div className="container-fluid young-passion-gradient">
+      <div className="row ">
         <div
-          className="col-12 col-md-7 d-sm-none d-md-block d-none d-sm-block"
-          id="yellow"
+          className="col-12 col-md-7 d-sm-none d-md-block full-height shadow "
           style={{
             backgroundImage:
               "url(https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)",
@@ -43,10 +42,13 @@ const Login = ({ setAlert, login, auth }) => {
             backgroundRepeat: "no-repeat",
           }}
         />
-        <div className="col-12 col-md-5 align-self-center my-5 py-5">
-          <form className="shadow py-4 px-3" onSubmit={(e) => onSubmit(e)}>
+        <div className="col-12 col-md-5 ">
+          <form
+            className="shadow full-height py-5 px-2"
+            onSubmit={(e) => onSubmit(e)}
+          >
             <h5 className="lead font-weight-bold">Login now!</h5>
-            <div className="md-form">
+            <div className="form-group">
               <label htmlFor="exampleInputEmail1">Mobile number</label>
               <input
                 type="text"
@@ -65,7 +67,7 @@ const Login = ({ setAlert, login, auth }) => {
               </small>
             </div>
 
-            <div className="md-form">
+            <div className="form-group">
               <label htmlFor="exampleInputPassword1">Password</label>
               <input
                 type="password"
@@ -104,6 +106,7 @@ Login.propTypes = {
   setAlert: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
 };
+
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
