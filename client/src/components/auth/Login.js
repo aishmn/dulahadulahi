@@ -11,9 +11,6 @@ const Login = ({ setAlert, login, auth }) => {
   });
   const { mobile, password } = formData;
   useEffect(() => {
-    if (auth.isAuthenticated) {
-      setAlert("You are already logged in");
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth.isAuthenticated]);
   const onChange = (e) => {
@@ -80,19 +77,10 @@ const Login = ({ setAlert, login, auth }) => {
                 required
               />
             </div>
-            <div className="form-group form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-              />
-              <label className="form-check-label" htmlFor="exampleCheck1">
-                Keep me logged in.
-              </label>
-            </div>
+
             <button
               type="submit"
-              className="btn btn-unique btn-block waves-effect waves-light"
+              className="btn btn-unique btn-block waves-effect waves-light mt-3"
             >
               Login
             </button>

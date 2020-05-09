@@ -8,7 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import EditProfile from "../profile/EditProfile";
 const Routes = (props) => {
   return (
-    <div>
+    <Fragment>
       <Switch>
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
@@ -18,10 +18,10 @@ const Routes = (props) => {
           path="/dashboard/edit-profile"
           component={EditProfile}
         />
-        >
+
         <Route component={NotFound} />
       </Switch>
-    </div>
+    </Fragment>
   );
 };
 

@@ -35,57 +35,51 @@ const Header = ({ auth, logout }) => {
   );
   return (
     <nav className="navbar navbar-expand-md sticky-top navbar-dark red darken-3">
-      <div className="container-lg">
-        <a
-          className="navbar-brand mr-5 "
-          href="/#"
-          style={{ fontSize: "1.5em" }}
+      <a className="navbar-brand mr-5 " href="/#" style={{ fontSize: "1.5em" }}>
+        <i class="fab fa-gratipay fa-lg"></i> DulahaDulahi
+      </a>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul
+          className="navbar-nav mr-auto"
+          style={{
+            fontSize: "20px",
+            opacity: "0.9",
+          }}
         >
-          <i class="fab fa-gratipay fa-lg"></i> DulahaDulahi
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul
-            className="navbar-nav mr-auto"
-            style={{
-              fontSize: "20px",
-              opacity: "0.9",
-            }}
-          >
-            <li className="nav-item active">
-              <a className="nav-link" href="/#">
-                <i class="fas fa-home"></i> Home{" "}
-                <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/#">
-                <i class="fas fa-info-circle"></i> About
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="/#"
-                tabIndex={-1}
-                aria-disabled="true"
-              >
-                Disabled
-              </a>
-            </li>
-          </ul>
-          {auth.isAuthenticated ? authLinks : guestLinks}
-        </div>
+          <li className="nav-item active">
+            <Link to="/" className="nav-link">
+              <i class="fas fa-home"></i> Home{" "}
+            </Link>
+            <span className="sr-only">(current)</span>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/about">
+              <i class="fas fa-info-circle"></i> About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link disabled"
+              href="/#"
+              tabIndex={-1}
+              aria-disabled="true"
+            >
+              Disabled
+            </a>
+          </li>
+        </ul>
+        {auth.isAuthenticated ? authLinks : guestLinks}
       </div>
     </nav>
   );

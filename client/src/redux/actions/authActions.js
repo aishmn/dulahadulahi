@@ -79,9 +79,8 @@ export const login = (mobile, password) => async (dispatch) => {
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
-    dispatch(await loadUser());
+    dispatch(loadUser());
     localStorage.setItem("token", res.data.token);
-    dispatch(setAlert("Login Successfull!"));
   } catch (err) {
     if (err.response === undefined) {
       return dispatch(setAlert("Server Disconnected, Please try again!"));

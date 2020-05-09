@@ -12,6 +12,12 @@ exports.getMyProfile = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getMyProfileId = async (req, res, next) => {
+  const profile = await Profile.findOne((user = req.user_id));
+  req.params.id = profile._id;
+  next();
+};
+
 exports.getAllProfile = factory.getAll(Profile);
 
 exports.updateProfile = factory.updateOne(Profile);

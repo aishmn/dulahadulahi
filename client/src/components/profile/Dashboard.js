@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Spinner from "../includes/Spinner";
-import Profile from "./Profile";
 import { getMyProfile } from "../../redux/actions/profileActions";
 import AdminHeader from "../includes/AdminHeader";
 
 const Dashboard = ({ getMyProfile, profile: { profile, loading } }) => {
   useEffect(() => {
-    getMyProfile();
-  }, [getMyProfile]);
+    if (!profile) getMyProfile();
+  }, [getMyProfile, profile]);
   if (loading) return <Spinner />;
   if (profile === null) return <Spinner />;
 
@@ -17,33 +16,68 @@ const Dashboard = ({ getMyProfile, profile: { profile, loading } }) => {
     <div className="">
       <AdminHeader profile={profile} />
       <div className="row">
-        <div className="col-lg-4 col-md-6 full-height">
+        <div className="col-lg-4 col-md-6">
           <div className="card-body card-body-cascade">
             <p className="card-text">
               <div className="view view-cascade shadow">
                 <img
                   src="https://dresseskhazana.com/wp-content/uploads/2017/11/Red-Suit-with-beautiful-Bridal-Makeup-2017.jpg"
                   className="mx-auto rounded-circle p-5"
-                  alt={profile.user.name}
+                  alt={profile.name}
                   style={{ height: "300px", width: "300px" }}
                 />
               </div>
               <ul className="list-group p-0 rounded-0">
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                   Name
-                  <span className=""> {profile.user.name}</span>
+                  <span className="font-weight-bold"> {profile.name}</span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                   Mobile Number
-                  <span className=""> {profile.user.mobile}</span>
+                  <span className="font-weight-bold">
+                    {" "}
+                    {profile.user.mobile}
+                  </span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                   Country
-                  <span className=""> {profile.country}</span>
+                  <span className="font-weight-bold text-capitalize">
+                    {" "}
+                    {profile.country}
+                  </span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                   Horoscope
-                  <span className=""> {profile.horoscope}</span>
+                  <span className="font-weight-bold text-capitalize">
+                    {" "}
+                    {profile.horoscope}
+                  </span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Religion
+                  <span className="font-weight-bold text-capitalize">
+                    {" "}
+                    {profile.religion}
+                  </span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Maritial Status
+                  <span className="font-weight-bold text-capitalize">
+                    {" "}
+                    {profile.maritial_status}
+                  </span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Height
+                  <span className="font-weight-bold"> {profile.height}</span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Weight
+                  <span className="font-weight-bold"> {profile.weight}</span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  Working as <strong>{profile.position} @</strong>
+                  <span className="font-weight-bold"> {profile.company}</span>
                 </li>
               </ul>
             </p>
@@ -55,9 +89,6 @@ const Dashboard = ({ getMyProfile, profile: { profile, loading } }) => {
               <h4 className="h4 text-uppercase text-center font-weight-bolder">
                 People intrested in you
               </h4>
-              <Profile />
-              <Profile />
-              <Profile />
             </div>
           </div>
         </div>
