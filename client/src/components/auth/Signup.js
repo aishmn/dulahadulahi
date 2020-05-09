@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { signup } from "../../redux/actions/authActions";
-import { Redirect } from "react-router";
+import { Redirect, withRouter } from "react-router";
 import PropTypes from "prop-types";
 import { setAlert } from "../../redux/actions/alertAction";
 import { connect } from "react-redux";
 
-const Signup = ({ signup, auth }) => {
+const Signup = ({ signup, auth, history }) => {
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -29,7 +29,7 @@ const Signup = ({ signup, auth }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await signup(name, mobile, password, passwordConfirm);
+    await signup(name, mobile, password, passwordConfirm, history);
     setFormData({ ...formData, mobile: "" });
   };
 
@@ -143,4 +143,6 @@ Signup.propTypes = {
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
-export default connect(mapStateToProps, { signup, setAlert })(Signup);
+export default connect(mapStateToProps, { signup, setAlert })(
+  withRouter(Signup)
+);

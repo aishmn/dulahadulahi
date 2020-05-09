@@ -3,8 +3,8 @@ import { setAlert } from "../../redux/actions/alertAction";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../redux/actions/authActions";
-import { Redirect } from "react-router";
-const Login = ({ setAlert, login, auth }) => {
+import { Redirect, withRouter } from "react-router";
+const Login = ({ setAlert, login, auth, history }) => {
   const [formData, setFormData] = useState({
     mobile: "",
     password: "",
@@ -19,7 +19,7 @@ const Login = ({ setAlert, login, auth }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    login(mobile, password);
+    login(mobile, password, history);
   };
   if (auth.isAuthenticated) {
     return <Redirect to="/dashboard" />;
@@ -99,4 +99,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { setAlert, login })(Login);
+export default connect(mapStateToProps, { setAlert, login })(withRouter(Login));

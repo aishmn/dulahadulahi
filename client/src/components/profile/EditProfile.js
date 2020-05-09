@@ -87,7 +87,7 @@ const EditProfile = ({
   return (
     <Fragment>
       <AdminHeader profile={profile} />
-      <form className="form px-1" onSubmit={(e) => onSubmit(e)}>
+      <form className="form px-1 mb-5" onSubmit={(e) => onSubmit(e)}>
         <div className="row">
           <div className="col-lg-4 col-md-6 px-4 pt-3  ">
             <div className="heading lead h5 font-weight-bold px-1 pt-1 border-bottom border-success">

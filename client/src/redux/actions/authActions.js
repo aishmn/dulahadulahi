@@ -24,14 +24,17 @@ export const loadUser = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    console.log(err.response);
     dispatch({ type: AUTH_ERROR });
   }
 };
 
-export const signup = (name, mobile, password, passwordConfirm) => async (
-  dispatch
-) => {
+export const signup = (
+  name,
+  mobile,
+  password,
+  passwordConfirm,
+  history
+) => async (dispatch) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -45,8 +48,8 @@ export const signup = (name, mobile, password, passwordConfirm) => async (
       type: REGISTER_SUCCESS,
       payload: res.data,
     });
+    history.push("/dashboard/edit-profile");
   } catch (err) {
-    console.log("message", err.response);
     if (err.response.data.error.code === 11000) {
       return dispatch(
         setAlert("User already Exists, try another mobile number")
@@ -64,7 +67,7 @@ export const signup = (name, mobile, password, passwordConfirm) => async (
   }
 };
 
-export const login = (mobile, password) => async (dispatch) => {
+export const login = (mobile, password, history) => async (dispatch) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -74,13 +77,13 @@ export const login = (mobile, password) => async (dispatch) => {
   const body = JSON.stringify({ mobile, password });
   try {
     const res = await axios.post("/users/login", body, config);
-    console.log("location", window.location);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
     dispatch(loadUser());
     localStorage.setItem("token", res.data.token);
+    history.push("/dashboard/edit-profile");
   } catch (err) {
     if (err.response === undefined) {
       return dispatch(setAlert("Server Disconnected, Please try again!"));
