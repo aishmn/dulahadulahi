@@ -10,6 +10,7 @@ import Routes from "./components/routes/Routes";
 import Landing from "./components/home/Landing";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Spinner from "./components/includes/Spinner";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -20,7 +21,7 @@ function App({ auth: { loading, user } }) {
     setAuthToken(localStorage.token);
     if (!user) store.dispatch(loadUser());
   }, [user]);
-
+  if (loading) return <Spinner />;
   return (
     <Fragment>
       <Alert />

@@ -68,16 +68,6 @@ const Header = ({ auth, logout }) => {
               <i class="fas fa-info-circle"></i> About
             </Link>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link disabled"
-              href="/#"
-              tabIndex={-1}
-              aria-disabled="true"
-            >
-              Disabled
-            </a>
-          </li>
         </ul>
         {auth.isAuthenticated ? authLinks : guestLinks}
       </div>
