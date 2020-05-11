@@ -8,7 +8,8 @@ const Alert = ({ alerts }) =>
   alerts.map((alert) => (
     <div
       key={alert.id}
-      className={`text-center text-dark font-weight-bold bg-gradient-warning p-3`}
+      className={`alert alert-danger text-center text-white h4-responsive alert-dismissible fade show rounded-0 bg-dark mb-0`}
+      style={{ zIndex: "100" }}
     >
       {alert.msg}
     </div>

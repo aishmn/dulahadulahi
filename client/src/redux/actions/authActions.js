@@ -13,12 +13,7 @@ import axios from "../../utils/Axios";
 
 export const loadUser = () => async (dispatch) => {
   try {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    };
-    const res = await axios.get("/users/me", config);
+    const res = await axios.get("/users/me");
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -82,7 +77,6 @@ export const login = (mobile, password, history) => async (dispatch) => {
       payload: res.data,
     });
     dispatch(loadUser());
-    localStorage.setItem("token", res.data.token);
     history.push("/dashboard/edit-profile");
   } catch (err) {
     if (err.response === undefined) {

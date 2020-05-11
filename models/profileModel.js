@@ -18,11 +18,6 @@ const ProfileSchema = new mongoose.Schema({
   },
   maritial_status: {
     type: String,
-    enum: {
-      values: ["married", "unmarried", "divorced"],
-      default: "unmarried",
-      message: "Maritial status is either: married, unmarried, divorced",
-    },
   },
   highest_education: { type: String },
   university: { type: String },

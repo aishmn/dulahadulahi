@@ -6,6 +6,7 @@ import Dashboard from "../profile/Dashboard";
 import NotFound from "../includes/NotFound";
 import PrivateRoutes from "./PrivateRoutes";
 import EditProfile from "../profile/EditProfile";
+
 const Routes = (props) => {
   return (
     <Fragment>

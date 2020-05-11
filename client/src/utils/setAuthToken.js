@@ -1,10 +1,12 @@
-import axios from "axios";
-const setAuthToken = token => {
+import Axios from "./Axios";
+
+const setAuthToken = (token) => {
   if (token) {
-    axios.defaults.headers.common["x-auth-token"] = token;
+    Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     localStorage.setItem("token", token);
+    console.log("token from set auth", token);
   } else {
-    delete axios.defaults.headers.common["x-auth-token"];
+    delete Axios.defaults.headers.common["Authorization"];
     localStorage.removeItem("token");
   }
 };
